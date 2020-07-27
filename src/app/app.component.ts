@@ -20,7 +20,7 @@ export class AppComponent  {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     public router: Router,
-    public common:CommonService
+    public common:CommonService,
 
   ) {
     this.initializeApp();
@@ -30,6 +30,10 @@ export class AppComponent  {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      this.statusBar.backgroundColorByHexString('#1a91a1');
+      this.statusBar.styleLightContent();
+     // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+    
     });
    
     this.platform.backButton.subscribeWithPriority(0, () => {

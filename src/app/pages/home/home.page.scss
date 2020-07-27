@@ -1,8 +1,15 @@
 ion-menu {
   --ion-background-color: black;
   --ion-text-color: white;
+  
 }
+.background{
+  background-color: var(--p-color);
 
+}
+ion-content  {
+  --background: #FDE277;
+}
 #container {
   text-align: center;
   position: absolute;
@@ -10,6 +17,7 @@ ion-menu {
   left: 0;
   right: 0;
   height: 100%;
+  width: 100%;
   // top: 50%;
   //transform: translateY(-50%);
 }
@@ -85,7 +93,8 @@ ion-menu {
   background-color: black;
 }
 .my-custom-menu {
-  --width: 350px;
+  --width: 300px;
+
 
   .sidebar-header {
     padding: 10px !important;
