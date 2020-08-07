@@ -2,15 +2,15 @@
     color: #000;
     background: var(--p-color);
     border-color: #fde277;
-    height: 55px;
-    width: 200px;
+    height: 7vh;
+    width: 55vw;
     font-size: 25px;
 }
 .align-items-center {
     -ms-flex-align: center!important;
     align-items: center!important;
     padding: 50px;
-}    
+} 
 .login-wrapper::before{
     border: 10px solid #FDE277;
     margin-bottom:0;
@@ -22,7 +22,7 @@ border: 3px solid #FDE277;
 /* border-bottom: 0; */
 border-radius: 11px;
 background: #fff;
-height: 55px;
+height: 9vh;
 box-shadow: 2px 2px 11px 1px #2546a517;
 }
 .form-control {
@@ -50,4 +50,12 @@ transition: 0.3s all ease;
 p{
 font-size: 15px;
 color: var(--p-color);
+}
+.logo{
+height: 25vh;
+width: 60vw;
+}
+.img-fluid1{
+width: 55vw;
+height: 16vw;
 }

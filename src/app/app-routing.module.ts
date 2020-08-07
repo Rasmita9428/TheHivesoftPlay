@@ -46,6 +46,10 @@ const routes: Routes = [
   {
     path: 'editprofile',
     loadChildren: () => import('./pages/editprofile/editprofile.module').then( m => m.EditprofilePageModule)
+  },
+  {
+    path: 'resetpassword',
+    loadChildren: () => import('./pages/resetpassword/resetpassword.module').then( m => m.ResetpasswordPageModule)
   }
 ];
 

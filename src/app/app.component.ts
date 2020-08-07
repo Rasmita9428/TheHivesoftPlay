@@ -1,10 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { Platform, IonRouterOutlet } from '@ionic/angular';
+import { Platform, IonRouterOutlet, NavController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Router } from '@angular/router';
 import { CommonService } from './utills/common.service';
+import { AuthService } from './services/auth-service/auth-service';
 
 @Component({
   selector: 'app-root',
@@ -21,6 +22,8 @@ export class AppComponent  {
     private statusBar: StatusBar,
     public router: Router,
     public common:CommonService,
+    public navctrl:NavController,
+    public auth:AuthService
 
   ) {
     this.initializeApp();
@@ -30,11 +33,49 @@ export class AppComponent  {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-      this.statusBar.backgroundColorByHexString('#1a91a1');
+      this.statusBar.backgroundColorByHexString('#2342a4');
       this.statusBar.styleLightContent();
-     // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
-    
+
+      this.platform.backButton.subscribeWithPriority(0, () => {
+        if (this.routerOutlet && this.routerOutlet.canGoBack()) {
+          this.routerOutlet.pop();
+        } else if (this.router.url === '/signin') {
+
+          if (this.counter == 2) {
+            navigator['app'].exitApp();
+          } else {
+            this.common.showToast('Press again to exit');
+            this.counter++;
+          }
+
+          setTimeout(() => {
+            this.counter = 1;
+          }, 3000);
+        } else if (this.router.url === '/home') {
+          if (this.routerOutlet && this.routerOutlet.canGoBack()) {
+            this.routerOutlet.pop();
+          } else if (this.router.url === '/home') {
+            if (this.counter == 3) {
+              navigator['app'].exitApp();
+            } else if (this.counter == 2) {
+              this.common.showToast('Press again to exit');
+            }
+            this.counter++;
+
+            setTimeout(() => {
+              this.counter = 1;
+            }, 3000);
+          }
+        }
+      });
     });
+    var loginParam = this.auth.getSecureToken();
+    if (loginParam != null && loginParam != '' && loginParam != undefined) {
+      this.navctrl.navigateRoot('home');
+    }
+    else {
+      this.navctrl.navigateRoot('signin');
+    }
    
     this.platform.backButton.subscribeWithPriority(0, () => {
       if (this.routerOutlet && this.routerOutlet.canGoBack()) {

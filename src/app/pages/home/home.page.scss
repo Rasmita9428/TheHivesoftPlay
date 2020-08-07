@@ -7,9 +7,7 @@ ion-menu {
   background-color: var(--p-color);
 
 }
-ion-content  {
-  --background: #FDE277;
-}
+
 #container {
   text-align: center;
   position: absolute;
@@ -23,8 +21,8 @@ ion-content  {
 }
 
 #container strong {
-  font-size: 20px;
-  line-height: 26px;
+  font-size: 5vw;
+  line-height: 267vw;
 }
 
 #container p {
@@ -37,7 +35,7 @@ ion-content  {
   box-shadow: 2px 2px 8px 2px #2546a545;
 }
 #container h6 {
-  font-size: 46px;
+  font-size: 11vw;
   color: black;
   font-weight: 600;
   margin: 0;
@@ -49,9 +47,9 @@ ion-content  {
   background: black;
   border-color: transparent;
   box-shadow: 2px 2px 8px 2px #2546a545;
-  height: 50px;
-  width: 235px;
-  font-size: 25px;
+  height: 7vh;
+  width: 62vw;
+  font-size: 7vw;
   font-weight: 600;
 }
 
@@ -70,9 +68,11 @@ ion-content  {
 }
 .btn-group .custombtn {
   width: 25%;
-  font-size: 13px;
+  font-size: 3vw;
   padding: 4px;
-}
+  border-radius: 10px;
+  height: 6vh;
+  }
 .btn-group button:not(:last-child) {
   border-right: none;
 }
@@ -93,7 +93,7 @@ ion-content  {
   background-color: black;
 }
 .my-custom-menu {
-  --width: 300px;
+  --width: 75vw;
 
 
   .sidebar-header {
@@ -105,7 +105,7 @@ ion-content  {
     img {
       max-width: 100%;
       border: 0;
-      margin-left: 25%;
+      margin-left: 11vw;
     }
     .btn {
       display: inline-block;
@@ -131,4 +131,16 @@ ion-content  {
     font-size: 20px; 
     color: var(--p-color);
   }
+  
+}
+.logo{
+  width: 71vw;
+  
+}
+.navbar {
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  margin-right: 5vw;
+  width: 100%;
 }
